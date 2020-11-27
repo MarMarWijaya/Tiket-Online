@@ -56,12 +56,18 @@
     border: 1px solid green ;
     background-color:#0b56a7;
     border-radius: 15px;
-  }
+}
 .boxed p{
     color: white;
     font-size: 22;
-    margin-left: 1%;
+    margin-left: 4%;
 }
+.boxed hr{
+    border-color: #ffbb33;
+    border-width: 3px;
+    width: 95%;
+}
+
 .boxed .input{
-    border-radius: 10%;
+    margin-left: 4%;
 } 

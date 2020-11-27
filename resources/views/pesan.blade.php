@@ -72,7 +72,8 @@
     <div class="boxed">
         <form method="POST" action="/pesan">
         {{ csrf_field() }}
-        <p>Pemesanan Tiket Kereta Api</p1><br><br>
+        <p style="margin-top: 2%">Pemesanan Tiket Kereta Api</p1>
+        <hr class="my-4">
         <table border='0' width="97%">
             <tr>
                 <td><p>Stasiun Awal</p></td>
@@ -81,7 +82,8 @@
             <tr>
                 <td>
                     <div class="input">
-                        <input type="text" name="asal" list="cityname" required size="50%">
+                        <input type="text" name='asal' class="form-control" id="exampleInputPassword1">
+                        <!-- <input type="text" name="asal" list="cityname" required size="50%"> -->
                             <datalist id="cityname">
                                 @foreach($stasiun as $key) 
                                     <option value="{{ $key->letak }}">
@@ -91,7 +93,8 @@
                 </td>
                 <td>
                     <div class="input">
-                        <input type="text" name="tujuan" list="cityname" required size="50%">
+                        <input type="text" name='tujuan' class="form-control" id="exampleInputPassword1">
+                        <!-- <input type="text" name="tujuan" list="cityname" required size="50%"> -->
                             <datalist id="cityname">
                                 <option value="Tester">
                             </datalist>
@@ -144,39 +147,48 @@
         </table>
         <br>
 
-        <input style="width: 99%; height: 7%; font-size: 24" type='submit' value='Cari Kereta' class="btn btn-warning">
+        <input style="margin-left:0.5%; margin-top: 2%; width: 99%; height: 7%; font-size: 24; background-color: #ffbb33; border: 0" type='submit' value='Cari Kereta' class="btn btn-warning" >
 </form>
     </div>
     </div>
 <br>
-    @if(isset($kereta))
-    @foreach($kereta as $k)
-    <table class="table table-striped" style="text-align: center" >
+<table class="table table-striped" style="text-align: center" >
     <thead style="background-color: #0b56a7; color: white">
+    <tr>
         <th>Nama</th>
         <th>Keberangkatan</th>
         <th>Tujuan</th>
-        <th>Tanggal Keberangkatan</th>
-        <th>Jam Berangkat</th>
-        <th>Jam Sampai</th>
         <th>Sisa Kursi</th>
-        <th>Action</th>
-</thead>
-<tbody>
-        <td>{{ $k->nama_kereta }}</td>
-        <td>{{ $k->awal }}</td>
-        <td>{{ $k->tujuan }}</td>
-        <td>{{ $k->tgl }}</td>
-        <td>{{ $k->jam_berangkat }}</td>
-        <td>{{ $k->jam_sampai }}</td>
+        <th>Action</th></tr>
+</thead>    
+@if(isset($kereta))
+    @foreach($kereta as $k)
+    
+<tbody> 
+    <tr>
+        <form method='post' action='/konfirmasi'>
+        {{ csrf_field() }}
+        <input type='hidden' name="id_kereta" value='{{ $k->id }}'>
+        <input type='hidden' name="id_kelas" value='{{ $k->idKelas }}'>
+        <input type='hidden' name="id_stok" value='{{ $k->idStok }}'>
+        <?php
+            echo "<input type='hidden' name='dewasa' value='".$_POST['dewasa']."'>";
+            echo "<input type='hidden' name='anak' value='".$_POST['anak']."'>";
+        ?>
+
+        <td><span style="font-weight: bold; font-size: 24">{{ $k->nama_kereta }}</span> <br> {{ $k->Kelas }}</td>
+        <td><span>{{ $k->awal }}</span> <br> {{ $k->tgl }} <br> Jam : {{ $k->jam_berangkat }}</td>
+        <td><span>{{ $k->tujuan }}</span> <br> {{ $k->tgl_tujuan }} <br> Jam : {{ $k->jam_sampai }}</td>
         <td>{{ $k->sisa }}</td>
-        <td><a href="" class="btn btn-warning">Pesan</a></td>
+        <td><input type="submit" class="btn btn-warning" value="Pesan"></td>
+        </form>
+</tr>
 </tbody>
 
-</table>
+
     @endforeach
     @endif
-    
+    </table>    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
