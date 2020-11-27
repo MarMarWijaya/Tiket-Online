@@ -17,5 +17,6 @@
 
 //Route::get('/link', 'namaFileController@namaFunction')
 
-Route::get('/', 'ListKeretaController@index');
-Route::post('/', 'ListKeretaController@tampilkan_kereta');
+Route::get('/pesan', 'ListKeretaController@index');
+Route::post('/pesan', 'ListKeretaController@tampilkan_kereta');
+Route::get('/', 'ListKeretaController@tampilanHome');
