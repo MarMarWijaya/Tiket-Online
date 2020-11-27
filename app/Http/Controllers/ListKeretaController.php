@@ -29,4 +29,10 @@ class ListKeretaController extends Controller
     public function tampilanHome(){
         return view('home');
     }
+
+
+    public function cobak(){
+        $stasiun = DB::table('stasiun')->get();
+        return view('coba', ['stasiun' => $stasiun]);
+    }
 }

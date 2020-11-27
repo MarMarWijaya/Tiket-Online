@@ -21,3 +21,4 @@ Route::get('/pesan', 'ListKeretaController@index');
 Route::post('/pesan', 'ListKeretaController@tampilkan_kereta');
 Route::get('/', 'ListKeretaController@tampilanHome');
 Route::post('/konfirmasi', 'KonfirmasiController@tampilkanPilihan');
+Route::get('/coba', 'ListKeretaController@cobak');
