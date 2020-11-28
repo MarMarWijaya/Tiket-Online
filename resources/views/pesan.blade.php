@@ -82,8 +82,7 @@
             <tr>
                 <td>
                     <div class="input">
-                        <input type="text" name='asal' class="form-control" id="exampleInputPassword1">
-                        <!-- <input type="text" name="asal" list="cityname" required size="50%"> -->
+                        <input type="text" name='asal' class="form-control" id="exampleInputPassword1" required list="cityname">
                             <datalist id="cityname">
                                 @foreach($stasiun as $key) 
                                     <option value="{{ $key->letak }}">
@@ -93,10 +92,12 @@
                 </td>
                 <td>
                     <div class="input">
-                        <input type="text" name='tujuan' class="form-control" id="exampleInputPassword1">
-                        <!-- <input type="text" name="tujuan" list="cityname" required size="50%"> -->
+                        <input type="text" name='tujuan' class="form-control" id="exampleInputPassword1" required list="cityname">
+                        
                             <datalist id="cityname">
-                                <option value="Tester">
+                            @foreach($stasiun as $key) 
+                                    <option value="{{ $key->letak }}">
+                                @endforeach
                             </datalist>
                     </div>
                 </td>
@@ -133,7 +134,7 @@
                 </td>
                 <td>
                     <div class="input">
-                    <input type="number" name="anak" list="anak" required size="25">
+                    <input type="number" name="anak" list="anak" size="25">
                             <datalist id="anak">
                                     <option value="1">
                                     <option value="2">
