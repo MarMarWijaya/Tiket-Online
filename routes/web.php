@@ -21,3 +21,8 @@ Route::get('/pesan', 'ListKeretaController@index');
 Route::post('/pesan', 'ListKeretaController@tampilkan_kereta');
 Route::get('/', 'ListKeretaController@tampilanHome');
 Route::post('/konfirmasi', 'KonfirmasiController@tampilkanPilihan');
+Route::post('/checkout', 'KonfirmasiController@checkout');
+Route::get('/checkout', 'KonfirmasiController@checkout');
+Route::post('/percobaan', 'KonfirmasiController@validasiKursi');
+Route::post('/validasi', 'KonfirmasiController@validasiAkhir');
+// Route::get('/kursi', 'KonfirmasiController@checkout');

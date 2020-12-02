@@ -71,3 +71,35 @@
 .boxed .input{
     margin-left: 4%;
 } 
+
+.container .h2{
+    margin-top: 10%;
+}
+
+.container .row{
+    margin: center;
+}
+.row .column-content-left{
+    border: 1px solid #0b56a7;
+    border-radius: 8px;
+}
+
+.row .column-content-right{
+    border: 1px solid #ffbb33;
+}
+
+.row .column-content-right .boxed{
+    border-radius: 0%;
+    margin-left: -4.5%;
+    margin-right: -4.5%;
+    border: none;
+    margin-bottom: 5%;
+    background-color:#ffbb33;
+}
+
+.row .column-content-left .input{
+    margin-top: 5%;
+}
+.row .column-content-left .input2{
+    margin-top: 5%;
+}

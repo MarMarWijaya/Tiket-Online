@@ -15,9 +15,9 @@ class ListKeretaController extends Controller
     public function tampilkan_kereta(Request $req){
         $stasiun = DB::table('stasiun')->get();
         $kereta = DB::table('kereta')
-        ->join('stok', 'kereta.id', '=', 'stok.id')
-        ->join('gerbong', 'kereta.id', '=', 'gerbong.id')
-        ->select('nama_kereta', 'awal', 'tujuan', 'jam_berangkat', 'jam_sampai', 'sisa', 'tgl', 'tgl_tujuan', 'Kelas', 'kereta.id', 'gerbong.idKelas', 'stok.idStok')
+        ->join('stok', 'kereta.idKereta', '=', 'stok.idKereta')
+        ->join('gerbong', 'kereta.idKereta', '=', 'gerbong.idKereta')
+        ->select('nama_kereta', 'awal', 'tujuan', 'jam_berangkat', 'jam_sampai', 'sisa', 'tgl', 'tgl_tujuan', 'Kelas', 'kereta.idKereta', 'gerbong.idKelas', 'stok.idStok')
         ->where('tgl', $req->date)
         ->where('awal', $req->asal)
         ->where('tujuan', $req->tujuan)
