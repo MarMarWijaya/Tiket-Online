@@ -26,3 +26,4 @@ Route::get('/checkout', 'KonfirmasiController@checkout');
 Route::post('/percobaan', 'KonfirmasiController@validasiKursi');
 Route::post('/validasi', 'KonfirmasiController@validasiAkhir');
 // Route::get('/kursi', 'KonfirmasiController@checkout');
+Route::get('/coba', 'ListKeretaController@cobak');
