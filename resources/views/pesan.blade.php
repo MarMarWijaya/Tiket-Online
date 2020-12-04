@@ -20,7 +20,7 @@
                     <a class="nav-link" href="pesan">Pesan <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#tentang">Tentang Kami</a>
+                    <a class="nav-link" href="tentang">Tentang Kami</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#kontak">Kontak</a>
