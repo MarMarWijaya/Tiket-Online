@@ -23,6 +23,7 @@ Route::get('/pesan', 'ListKeretaController@index');
 Route::post('/pesan', 'ListKeretaController@tampilkan_kereta');
 Route::get('/', 'ListKeretaController@tampilanHome');
 Route::post('/konfirmasi', 'KonfirmasiController@tampilkanPilihan');
+Route::post('/konfirmasiWithLogin', 'KonfirmasiController@tampilkanPilihanWithLogin');
 Route::post('/checkout', 'KonfirmasiController@checkout');
 Route::get('/checkout', 'KonfirmasiController@checkout');
 Route::post('/pembayaran', 'KonfirmasiController@validasiKursi');

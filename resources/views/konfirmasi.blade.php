@@ -1,4 +1,8 @@
-<?php session_start() ?>
+<?php 
+    if(!isset($_SESSION)){
+        session_start();
+    }
+?>
 <html>
 <head>
     <title>Tiket Jangkrik Balap</title>
@@ -31,7 +35,7 @@
         </div>
     </nav>
     <div class="container">
-        <form method="POST" action="/checkout">
+        <form method="POST" action="{{url('/checkout')}}">
         {{ csrf_field() }}
             <h1 style="margin-top:3%; margin-left:-1.5%">Pemesanan</h1>
                 <div class="row" style="margin-top: 0%">
@@ -39,8 +43,23 @@
                             <h4 style="margin-top: 3%; color: #0b56a7; margin-left:2%"><b>Data Pemesan</b></h4>
                         <div class="input" style="margin-left:2%">
 
-                        <!-- get data pemesan dari user akun -->
-                            <?php if(isset($_SESSION['user'])){echo "<h1>login gais</h1>";}?>
+                        <!-- halaman konfrimasi jika user sudah login -->
+                        <?php if(isset($_SESSION['user'])): ?>
+                            <table border='0' width="97%">
+                                <tr style="color: #0b56a7"> <td><h6><b>Nama Pemesan</b> <br style="margin-bottom: 1%"> <input type="text" name='namaPemesan' class="form-control" id="exampleInputPassword1" placeholder="Nama sesuai KTP/SIM/Paspor" value='<?= $akun->nama  ?>' required></h6></td>
+                                </tr>
+                                <tr style="color: #0b56a7">
+                                    <td><h6 style="margin-top:2%"><b>Email</b> <br style="margin-bottom: 1%"> <input type="text" name='emailPemesan' class="form-control" id="exampleInputPassword1" placeholder="Contoh@gmail.com" value='<?= $akun->email ?>' required></h6></td>
+                                </tr>
+                                <tr style="color: #0b56a7">
+                                    <td><h6 style="margin-top:2%"><b>No. HP Pemesan</b> <br style="margin-bottom: 1%"> <input type="text" name='hpPemesan' class="form-control" id="exampleInputPassword1" placeholder="08xxx" value='<?= $akun->hp ?>' required></h6></td>
+                                </tr>
+                                <tr style="color: #0b56a7">
+                                    <td><h6 style="margin-top:2%"><b>No. NIK Pemesan</b> <br style="margin-bottom: 1%"> <input type="text" name='nikPemesan' class="form-control" id="exampleInputPassword1" placeholder="NIK sesuai KTP/SIM" value='<?= $akun->nik ?>' required></h6><br style="margin-bottom: 1%"></td>
+                                </tr>
+                            </table>
+                        <!-- halaman konfrimasi jika user belum login -->
+                        <?php else : ?>
                             <table border='0' width="97%">
                                 <tr style="color: #0b56a7"> <td><h6><b>Nama Pemesan</b> <br style="margin-bottom: 1%"> <input type="text" name='namaPemesan' class="form-control" id="exampleInputPassword1" placeholder="Nama sesuai KTP/SIM/Paspor" required></h6></td>
                                 </tr>
@@ -54,6 +73,8 @@
                                     <td><h6 style="margin-top:2%"><b>No. NIK Pemesan</b> <br style="margin-bottom: 1%"> <input type="text" name='nikPemesan' class="form-control" id="exampleInputPassword1" placeholder="NIK sesuai KTP/SIM" required></h6><br style="margin-bottom: 1%"></td>
                                 </tr>
                             </table>
+                        <?php endif; ?>
+
                         </div>
                     </div>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 

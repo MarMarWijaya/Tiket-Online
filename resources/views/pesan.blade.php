@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <html>
 <head>
     <title>E-tiket</title>
@@ -127,7 +130,13 @@
     @foreach($kereta as $k)
     <tbody> 
         <tr>
-            <form method='post' action='/konfirmasi'>
+        <?php
+            if(isset($_SESSION['user'])){
+                echo "<form method='post' action='konfirmasiWithLogin'>";
+            }else{
+                echo "<form method='post' action='/konfirmasi'>";
+            }
+        ?>
             {{ csrf_field() }}
                 <input type='hidden' name="id_kereta" value='{{ $k->idKereta }}'>
                 <input type='hidden' name="id_kelas" value='{{ $k->idKelas }}'>

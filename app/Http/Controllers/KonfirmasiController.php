@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+if(!isset($_SESSION)){
+    session_start();
+}
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 class KonfirmasiController extends Controller
 {
 
@@ -22,6 +23,24 @@ class KonfirmasiController extends Controller
         ->where('stok.idStok', $req->id_stok)
         ->get();
         return view('konfirmasi', ['pilihan' => $pilihan], ['dewasa' => $req->dewasa, 'anak' => $req->anak, 'tiba' => $tiba, 'tujuan' => $tujuan]);
+    }
+    public function tampilkanPilihanWithLogin(Request $req){
+        //koding get ifo user
+        $email = $_SESSION["user"];
+        $user = DB::table('user')->where('email', $email)->first();
+        //Koding alsi
+        $tiba = $req->tgl.$req->jam0;
+        $tujuan = $req->tglTujuan.$req->jam1;
+        
+        $pilihan = DB::table('kereta')
+        ->join('stok', 'kereta.idKereta', '=', 'stok.idKereta')
+        ->join('gerbong', 'kereta.idKereta', '=', 'gerbong.idKereta')
+        ->select('nama_kereta', 'awal', 'kereta.idKereta', 'stok.idStok', 'tujuan', 'jam_berangkat', 'jam_sampai', 'stok.tgl', 'stok.tgl_tujuan', 'gerbong.Kelas', 'sisa', 'gerbong.Harga')
+        ->where('kereta.idKereta', $req->id_kereta)
+        ->where('gerbong.idKelas', $req->id_kelas)
+        ->where('stok.idStok', $req->id_stok)
+        ->get();
+        return view('konfirmasi', ['pilihan'=>$pilihan, 'akun' =>$user, 'dewasa' => $req->dewasa, 'anak' => $req->anak, 'tiba' => $tiba, 'tujuan' => $tujuan]);
     }
     public $data_sementara;
     public function checkout(Request $req){
@@ -51,7 +70,6 @@ class KonfirmasiController extends Controller
         
 
 
-        session_start();
         $jml = count($req->namaPenumpang);
         $_SESSION['jml'] = $jml;
         return view("pilihKursi", ['kursi' => $noKursi], [
@@ -81,7 +99,7 @@ class KonfirmasiController extends Controller
         for ($i=0; $i < $req->jml ; $i++) { 
             $array[$i] = $req->kursiPilihan[$i];
         }
-        $cek;
+        // $cek;
         if ( (count($array) !== count(array_unique($array)) )== 1){
             //ada isi yang sama
             return view("pembayaran", ['pesan' => 'Kursi tidak boleh sama']);
