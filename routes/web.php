@@ -31,7 +31,6 @@ Route::post('/validasi', 'HomeController@sendEmail');
 // Route::get('/kursi', 'KonfirmasiController@checkout');
 Route::get('/coba', 'ListKeretaController@cobak');
 Route::get('/tentang', 'LainController@tentang');
-<<<<<<< HEAD
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@cek');
 Route::get('/daftar', 'LoginController@daftar');
@@ -40,7 +39,6 @@ Route::get('/akun', 'LoginController@akun');
 Route::get('/logout', 'LoginController@logout');
 Route::get('/editAkun/{email}', 'LoginController@editAkun');
 Route::post('/editAkun', 'LoginController@editAkunGo');
-=======
 
 Route::post('/send-email', 'HomeController@sendEmail')->name('send.email');
 Auth::routes();
@@ -50,4 +48,3 @@ Route::get('/email', 'HomeController@index')->name('email');
 Auth::routes();
 
 Route::get('/email', 'HomeController@index')->name('email');
->>>>>>> d4fc35ff7bee7c1dd5105bb554b911fdbac3db41
