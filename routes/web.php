@@ -17,6 +17,8 @@
 
 //Route::get('/link', 'namaFileController@namaFunction')
 
+use App\Http\Controllers\Auth\LoginController;
+
 Route::get('/pesan', 'ListKeretaController@index');
 Route::post('/pesan', 'ListKeretaController@tampilkan_kereta');
 Route::get('/', 'ListKeretaController@tampilanHome');
@@ -28,3 +30,11 @@ Route::post('/validasi', 'KonfirmasiController@validasiAkhir');
 // Route::get('/kursi', 'KonfirmasiController@checkout');
 Route::get('/coba', 'ListKeretaController@cobak');
 Route::get('/tentang', 'LainController@tentang');
+Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@cek');
+Route::get('/daftar', 'LoginController@daftar');
+Route::post('/daftar', 'LoginController@daftarGo');
+Route::get('/akun', 'LoginController@akun');
+Route::get('/logout', 'LoginController@logout');
+Route::get('/editAkun/{email}', 'LoginController@editAkun');
+Route::post('/editAkun', 'LoginController@editAkunGo');

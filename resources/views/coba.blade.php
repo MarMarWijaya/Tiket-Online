@@ -3,8 +3,13 @@
 		<title>Cobak</title>
 	</head>
 	<body>
-		@foreach($stasiun as $s)
-		<?php echo $s->letak."<br>"; ?>
-		@endforeach
+		<?php
+			if(!isset($user[0]->email)){
+				echo "null";
+			}else{
+				echo "ada isinya";
+			}
+
+		?>
 	</body>
 </html>

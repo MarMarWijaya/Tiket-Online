@@ -29,6 +29,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="kontak">Kontak</a>
                 </li>
+                <li>
+                    <a class="nav-link" href="akun">Akun</a>
+                </li>
                 </ul>
             </div>
         </div>
