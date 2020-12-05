@@ -21,17 +21,26 @@ class LoginController extends Controller
     }
 
     public function editAkun($email){
-        $err = 1; 
+        $err = "mantab"; 
         $user = DB::table('user')->where('email', $email)->get();
         return view('akun', ['akun'=>$user], ['err'=>$err]);
     }
     public function editAkunGo(Request $req){
-        //ambil data asli untuk cek
-        $user = DB::table('user')->where('email', $req->email)->first();
+        //password
+        $user = DB::table('user')->where('email', $req->emailAsli)->get();
+
+        //email
+        if($req->email != $req->emailAsli){
+            $cekEmail = DB::table('user')->where('email', $req->email)->first();
+            if(isset($cekEmail)){
+                $err = "<h4 style='color:red'>Email Sudah digunakan, silahkan gunakan email lain!</h4>";
+                return view('akun', ['err'=> $err], ['akun'=>$user]);
+            }
+        }
         //cek password
-        if($req->password == $user->password){
+        if($req->password == $user[0]->password){
             //update data infromasi user
-            DB::table('user')->where('email', $req->email)->update([
+            DB::table('user')->where('email', $req->emailAsli)->update([
                 'nama' => $req->nama,
                 'email' => $req->email,
                 'hp' => $req->hp,
@@ -40,7 +49,7 @@ class LoginController extends Controller
             return redirect('/akun');
         }else{
             $err = "<h4 style='color:red'>Password Salah!</h4>";
-            return redirect('/editAkun/{{ $req->email }}');
+            return view('akun', ['err'=> $err], ['akun'=>$user]);
         }
 
 

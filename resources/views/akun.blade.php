@@ -44,7 +44,7 @@
 
         if(isset($err)){
     ?>
-    <form method='POST' actoin='/editAkun'>
+    <form method='POST' action='{{url('/editAkun')}}'>
     <table>
     {{ csrf_field() }}
         <tr>
@@ -55,6 +55,7 @@
         <tr>
             <td> <label for='email'>Email</label>
             <td> <input type='email' name='email' id='email' placeholder='contoh@domain.com' value='<?= $akun[0]->email ?>' required> </td>
+            <input type='hidden' name='emailAsli' value='<?= $akun[0]->email ?>'>
         </tr>
 
         <tr>
@@ -74,10 +75,10 @@
 
         <tr>
             <td align='right'> <a href='/akun'>Batal</a> </td>
-            <td align='right'> <input type='submit' value='Simpan'> </td>
+            <td align='right'> <input type='submit' value='Simpan Perubahan'> </td>
         </tr>            
 
-        <?php if(isset($err)){ ?>
+        <?php if($err != "mantab"){ ?>
         <tr>
             <td colspan='2' align='right'><?= $err ?></td>
         </tr>
