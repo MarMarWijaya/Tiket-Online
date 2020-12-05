@@ -28,10 +28,10 @@ class KonfirmasiController extends Controller
         
         $idStok = $req->idStok;
         $idKereta = $req->idKereta;
-        $namaPenumpang = implode(" ", $req->namaPenumpang);
-        $emailPenumpang = implode(" ", $req->emailPenumpang);
-        $hpPenumpang = implode(" ", $req->hpPenumpang);
-        $nikPenumpang = implode(" ", $req->nikPenumpang);
+        $namaPenumpang = implode("; ", $req->namaPenumpang);
+        $emailPenumpang = implode("; ", $req->emailPenumpang);
+        $hpPenumpang = implode("; ", $req->hpPenumpang);
+        $nikPenumpang = implode("; ", $req->nikPenumpang);
 
         $berangkat = DB::table('stok')
             ->select('tgl', 'tgl_tujuan')
@@ -84,9 +84,9 @@ class KonfirmasiController extends Controller
         $cek;
         if ( (count($array) !== count(array_unique($array)) )== 1){
             //ada isi yang sama
-            return view("percobaan", ['pesan' => 'Kursi tidak boleh sama']);
+            return view("pembayaran", ['pesan' => 'Kursi tidak boleh sama']);
         }else{
-            return view("percobaan", ['pesan' => 'Simpan ke DB', 
+            return view("pembayaran", ['pesan' => 'Simpan ke DB', 
                 'jml' => $req->jml, 
                 'idStok' => $req->idStok, 
                 'idKereta' => $req->idKereta,

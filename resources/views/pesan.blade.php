@@ -121,7 +121,6 @@
                 <th>Nama</th>
                 <th>Keberangkatan</th>
                 <th>Tujuan</th>
-                <th>Sisa Kursi</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -144,7 +143,7 @@
                 <td><span style="font-weight: bold; font-size: 24">{{ $k->nama_kereta }}</span> <br> {{ $k->Kelas }}</td>
                 <td><span>{{ $k->awal }}</span> <br> {{ $k->tgl }} <br> Jam : {{ $k->jam_berangkat }}</td>
                 <td><span>{{ $k->tujuan }}</span> <br> {{ $k->tgl_tujuan }} <br> Jam : {{ $k->jam_sampai }}</td>
-                <td>{{ $k->sisa }}</td>
+                
                 <td><input type="submit" class="btn btn-warning" value="Pesan"></td>
             </form>
         </tr>
