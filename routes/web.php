@@ -23,8 +23,18 @@ Route::get('/', 'ListKeretaController@tampilanHome');
 Route::post('/konfirmasi', 'KonfirmasiController@tampilkanPilihan');
 Route::post('/checkout', 'KonfirmasiController@checkout');
 Route::get('/checkout', 'KonfirmasiController@checkout');
-Route::post('/percobaan', 'KonfirmasiController@validasiKursi');
+Route::post('/pembayaran', 'KonfirmasiController@validasiKursi');
 Route::post('/validasi', 'KonfirmasiController@validasiAkhir');
+Route::post('/validasi', 'HomeController@sendEmail');
 // Route::get('/kursi', 'KonfirmasiController@checkout');
 Route::get('/coba', 'ListKeretaController@cobak');
 Route::get('/tentang', 'LainController@tentang');
+
+Route::post('/send-email', 'HomeController@sendEmail')->name('send.email');
+Auth::routes();
+
+Route::get('/email', 'HomeController@index')->name('email');
+
+Auth::routes();
+
+Route::get('/email', 'HomeController@index')->name('email');
