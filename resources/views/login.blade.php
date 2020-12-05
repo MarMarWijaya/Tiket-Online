@@ -14,7 +14,7 @@
             }
         ?>
         <table>
-        <form action='/login' method="POST">
+        <form action='/loginUser' method="POST">
         {{ csrf_field() }}
         <tr>
             <td> <label for='email'>Email</label> </td>
@@ -28,7 +28,7 @@
 
         <tr>
             <td> <input type='submit' value='Login'> </td>
-            <td> <a href='daftar'>Daftar</a>
+            <td> <a href='/daftar'>Daftar</a>
         </tr>
         </form>
     </body>

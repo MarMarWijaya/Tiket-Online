@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <html>
 <head>
     <title>Tiket Jangkrik Balap</title>
@@ -37,9 +38,11 @@
                     <div class="column-content-left col-md-7">
                             <h4 style="margin-top: 3%; color: #0b56a7; margin-left:2%"><b>Data Pemesan</b></h4>
                         <div class="input" style="margin-left:2%">
+
+                        <!-- get data pemesan dari user akun -->
+                            <?php if(isset($_SESSION['user'])){echo "<h1>login gais</h1>";}?>
                             <table border='0' width="97%">
-                                <tr style="color: #0b56a7">
-                                    <td><h6><b>Nama Pemesan</b> <br style="margin-bottom: 1%"> <input type="text" name='namaPemesan' class="form-control" id="exampleInputPassword1" placeholder="Nama sesuai KTP/SIM/Paspor" required></h6></td>
+                                <tr style="color: #0b56a7"> <td><h6><b>Nama Pemesan</b> <br style="margin-bottom: 1%"> <input type="text" name='namaPemesan' class="form-control" id="exampleInputPassword1" placeholder="Nama sesuai KTP/SIM/Paspor" required></h6></td>
                                 </tr>
                                 <tr style="color: #0b56a7">
                                     <td><h6 style="margin-top:2%"><b>Email</b> <br style="margin-bottom: 1%"> <input type="text" name='emailPemesan' class="form-control" id="exampleInputPassword1" placeholder="Contoh@gmail.com" required></h6></td>

@@ -43,7 +43,7 @@
             </tr>
 
             <tr>
-                <td align='right'> <a href='login'>Login</a> </td>
+                <td align='right'> <a href='/loginUser'>Login</a> </td>
                 <td align='right'> <input type='submit' value='Daftar'> </td>
             </tr>
         </form>
