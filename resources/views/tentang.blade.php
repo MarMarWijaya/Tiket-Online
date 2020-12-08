@@ -15,6 +15,8 @@
 }
 
 
+
+
 </style>
 
 </head>
@@ -49,7 +51,6 @@
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner" >
     <div class="carousel-item active">
@@ -60,17 +61,10 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img src="https://i.pinimg.com/originals/18/82/6b/18826b1eef9c7a13dac74848d7c0b99a.jpg" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url();" class="d-block w-100" alt="...">
+      <img src="https://i.pinimg.com/originals/18/82/6b/18826b1eef9c7a13dac74848d7c0b99a.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="https://www.setaswall.com/wp-content/uploads/2017/07/Train-Wallpapers-22-1920-x-1200.jpg"  class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
       </div>
     </div>
   </div>
@@ -86,7 +80,33 @@
 
 <br><br>
 
-
+<div class="container">
+  <center>
+  <h1>Informasi Kontak Kami</h1> 
+  <table cellpadding="15%">
+    <tr>
+      <td><img src="https://cdn4.iconfinder.com/data/icons/social-media-flat-7/64/Social-media_Facebook-512.png" width="50" height="50"></td>
+      <td><a href="https://www.facebook.com/mario.wijaya.7315/">Mario Wijaya</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://i.pinimg.com/originals/a2/5f/4f/a25f4f58938bbe61357ebca42d23866f.png" width="50" height="50"></td>
+      <td><a href="https://www.instagram.com/mar_mar_wijaya/">mar_mar_wijaya</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c543.png" width="50" height="50"></td>
+      <td>085315823366</td>
+    </tr>
+    <tr>
+      <td><img src="https://images.vexels.com/media/users/3/157423/isolated/preview/ce85e9ec0fcc780a0c269360ccfc685d-landline-telephone-icon-by-vexels.png" width="50" height="50"></td>
+      <td>(024)3564567</td>
+    </tr>
+</table> 
+<br></br>
+  <h1>Lokasi Kantor Kami</h1>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1176.5217768339446!2d110.48649349143953!3d-7.316576792770736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a786876b54235%3A0x611e35baf270d066!2sJl.%20Rejosari%20II%2C%20Pulutan%2C%20Kec.%20Sidorejo%2C%20Kota%20Salatiga%2C%20Jawa%20Tengah%2050716!5e0!3m2!1sen!2sid!4v1607318117551!5m2!1sen!2sid" width="100%" height="70%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+<br></br>
+</center>
+  </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

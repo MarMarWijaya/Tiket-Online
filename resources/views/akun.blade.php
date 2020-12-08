@@ -17,8 +17,8 @@
                 </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="">Beranda <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Beranda </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/pesan">Pesan</a>
@@ -30,52 +30,53 @@
                     <a class="nav-link" href="/kontak">Kontak</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="/akun">Akun</a>
+                    <a class="nav-link active" href="/akun">Akun <span class="sr-only">(current)</span></a>
                 </li>
                 </ul>
             </div>
         </div>
     </nav>
-    
+    <div class="container">
     <?php
         echo "<h1 align='center'>AKUN</h1>";
-        echo "<p>Anda login sebagai: ".$_SESSION['user']."<a href='logout'> [Logout]</a>"."</p>";
-        echo "<h3>informasi akun</h3>";
+        echo "<p>Anda login sebagai: ".$_SESSION['user']."<br><a class='btn btn-danger' href='logout'> Logout</a>"."</p>";
+        echo "<center><h3>Informasi Akun</h3></center>";
 
         if(isset($err)){
     ?>
+    <center>
     <form method='POST' action='{{url('/editAkun')}}'>
-    <table>
+    <table cellpadding='5%'>
     {{ csrf_field() }}
         <tr>
             <td> <label for='nama'>Nama</label>
-            <td> <input name='nama' id='nama' placeholder='Nama lengkap sesuai KTP' value='<?= $akun[0]->nama ?>' required>
+            <td> <input class="form-control ml-30" name='nama' id='nama' placeholder='Nama lengkap sesuai KTP' value='<?= $akun[0]->nama ?>' required>
         </tr>
 
         <tr>
             <td> <label for='email'>Email</label>
-            <td> <input type='email' name='email' id='email' placeholder='contoh@domain.com' value='<?= $akun[0]->email ?>' required> </td>
+            <td> <input class="form-control ml-30" type='email' name='email' id='email' placeholder='contoh@domain.com' value='<?= $akun[0]->email ?>' required> </td>
             <input type='hidden' name='emailAsli' value='<?= $akun[0]->email ?>'>
         </tr>
 
         <tr>
             <td> <label for='hp'>No HP</label>
-            <td> <input name='hp' id='hp' placeholder='08xxx' value='<?= $akun[0]->hp ?>' required> </td>
+            <td> <input class="form-control ml-30" name='hp' id='hp' placeholder='08xxx' value='<?= $akun[0]->hp ?>' required> </td>
         </tr>
             
         <tr>
             <td> <label for='nik'>NIK</label>
-            <td> <input name='nik' id='nik'placeholder='NIK sesuai ktp' value='<?= $akun[0]->nik ?>' required> </td>
+            <td> <input class="form-control ml-30" name='nik' id='nik'placeholder='NIK sesuai ktp' value='<?= $akun[0]->nik ?>' required> </td>
         </tr>
 
         <tr>
             <td> <label for='pass'>Password</label>
-            <td> <input type='password' name='password' id='pass' placeholder='Password Saat ini' required> </td>
+            <td> <input class="form-control ml-30" type='password' name='password' id='pass' placeholder='Password Saat ini' required> </td>
         </tr>
 
         <tr>
-            <td align='right'> <a href='/akun'>Batal</a> </td>
-            <td align='right'> <input type='submit' value='Simpan Perubahan'> </td>
+            <td align='right'> <a class="btn btn-danger" href='/akun'>Batal</a> </td>
+            <td align='right'> <input type='submit' class="btn btn-success" value='Simpan Perubahan'> </td>
         </tr>            
 
         <?php if($err != "mantab"){ ?>
@@ -84,36 +85,43 @@
         </tr>
         <?php } ?>
     </form>
+    </center>
     </table>
     <?php
         }else{
     ?>
-    <table border="1">
+    <center>
+    <table cellpadding='5%'>
         <tr>
             <td> Nama </td>
+            <td>:</td>
             <td> <?= $akun[0]->nama ?> </td>
         </tr>
         <tr>
             <td> Email </td>
+            <td>:</td>
             <td> <?= $akun[0]->email ?> </td>
         </tr>
         <tr>
             <td> HP </td>
+            <td>:</td>
             <td> <?= $akun[0]->hp ?> </td>
         </tr>
         <tr>
             <td> NIK </td>
+            <td>:</td>
             <td> <?= $akun[0]->nik ?> </td>
         </tr>
-        <tr>
-            <td> <a href='/editAkun/{{ $akun[0]->email }}'>Edit Informasi Akun</a> </td>
-            <td align='right'> <a href='editAkun/{{ $akun[0]->email }}'>Ubah Password</a> </td>
-        </tr>
+ 
     </table>
+    <br>
+    <a class="btn btn-warning" href='/editAkun/{{ $akun[0]->email }}'>Edit Informasi Akun</a><br><br>
+    <a class="btn btn-secondary" href='editAkun/{{ $akun[0]->email }}'>Ubah Password</a>
+    </center>
     <?php } ?>
 
             
-
+    </div>
       
     <?php
     if(isset($msg)) echo $msg;

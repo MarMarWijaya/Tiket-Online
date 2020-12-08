@@ -49,3 +49,56 @@ Route::get('/email', 'HomeController@index')->name('email');
 Auth::routes();
 
 Route::get('/email', 'HomeController@index')->name('email');
+
+//ADMIN Home & Logout
+Route::get('/homeAdmin', 'AdminController@homeAdmin')->middleware('auth')->name('homeAdmin');
+Route::get('/logout', 'AdminController@logout');
+
+//ADMIN Stasiun
+Route::get('/home', 'AdminController@home')->middleware('auth')->name('home');
+Route::get('/tambah','AdminController@tambah')->middleware('auth')->name('tambah');
+Route::post('/simpan','AdminController@simpan')->middleware('auth')->name('simpan');
+
+Route::get('/hapus/{letak}','AdminController@hapus')->middleware('auth')->name('hapus');
+
+Route::get('/edit/{letak}','AdminController@edit')->middleware('auth')->name('edit');
+Route::get('/home/{letak}','AdminController@edit')->middleware('auth')->name('edit');
+
+Route::post('/ubah','AdminController@ubah')->middleware('auth')->name('ubah');
+
+//Admin Stok
+Route::get('/stok', 'AdminController@stok')->middleware('auth')->name('stok');
+Route::get('/tambahStok','AdminController@tambahStok')->middleware('auth')->name('tambahStok');
+Route::post('/simpan','AdminController@simpanStok')->middleware('auth')->name('simpanStok');
+
+Route::get('/hapusStok/{idStok}','AdminController@hapusStok')->middleware('auth')->name('hapusStok');
+
+Route::post('/editStok','AdminController@editStok')->middleware('auth')->name('editStok');
+Route::post('/stok/{idStok}','AdminController@editStok')->middleware('auth')->name('editStok');
+
+Route::post('/ubahStok','AdminController@ubahStok')->middleware('auth')->name('ubahStok');
+
+//Admin Gerbong
+Route::get('/gerbong', 'AdminController@gerbong')->middleware('auth')->name('gerbong');
+Route::get('/tambahGerbong','AdminController@tambahGerbong')->middleware('auth')->name('tambahGerbong');
+Route::post('/simpan','AdminController@simpanGerbong')->middleware('auth')->name('simpanGerbong');
+
+Route::get('/hapusGerbong/{idKelas}','AdminController@hapusGerbong')->middleware('auth')->name('hapusGerbong');
+
+Route::post('/editGerbong','AdminController@editGerbong')->middleware('auth')->name('editGerbong');
+Route::post('/gerbong/{idKelas}','AdminController@editGerbong')->middleware('auth')->name('editGerbong');
+
+Route::post('/ubahGerbong','AdminController@ubahGerbong')->middleware('auth')->name('ubahGerbong');
+
+//Admin Kereta
+Route::get('/kereta', 'AdminController@kereta')->middleware('auth')->name('kereta');
+Route::get('/tambahKereta','AdminController@tambahKereta')->middleware('auth')->name('tambahKereta');
+Route::post('/simpan','AdminController@simpanKereta')->middleware('auth')->name('simpanKereta');
+
+Route::get('/hapusKereta/{idKereta}','AdminController@hapusKereta')->middleware('auth')->name('hapusKereta');
+
+Route::get('/editKereta','AdminController@editKereta')->middleware('auth')->name('editKereta');
+Route::post('/kereta/{idKereta}','AdminController@editKereta')->middleware('auth')->name('editKereta');
+
+Route::post('/ubahKereta','AdminController@ubahKereta')->middleware('auth')->name('ubahKereta');
+Route::post('/editKereta','AdminController@editKereta')->middleware('auth')->name('editKereta');
