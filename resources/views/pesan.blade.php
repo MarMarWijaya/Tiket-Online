@@ -25,9 +25,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="tentang">Tentang Kami</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#kontak">Kontak</a>
-                </li>
                 <li>
                     <a class='nav-link' href='akun'>Akun</a>
                 </li>

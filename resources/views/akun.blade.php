@@ -11,7 +11,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="https://www.freelogodesign.org/file/app/client/thumb/19b5b75e-f509-4efe-9714-83cb17f089c9_200x200.png?1606298625886" width="50px"></a>
+            <a class="navbar-brand" href="/"><img src="https://www.freelogodesign.org/file/app/client/thumb/19b5b75e-f509-4efe-9714-83cb17f089c9_200x200.png?1606298625886" width="50px"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -25,9 +25,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/tentang">Tentang Kami</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/kontak">Kontak</a>
                 </li>
                 <li>
                     <a class="nav-link active" href="/akun">Akun <span class="sr-only">(current)</span></a>

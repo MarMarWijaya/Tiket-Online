@@ -10,7 +10,6 @@ class LoginController extends Controller
         return view('login');
     }
     
-
     public function akun(){
         if(!isset($_SESSION['user'])){
             return view('login');

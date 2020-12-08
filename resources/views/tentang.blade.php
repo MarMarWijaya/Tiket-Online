@@ -13,10 +13,6 @@
 .hero {
     background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url();
 }
-
-
-
-
 </style>
 
 </head>
@@ -24,7 +20,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="https://www.freelogodesign.org/file/app/client/thumb/19b5b75e-f509-4efe-9714-83cb17f089c9_200x200.png?1606298625886" width="50px"></a>
+            <a class="navbar-brand" href="/"><img src="https://www.freelogodesign.org/file/app/client/thumb/19b5b75e-f509-4efe-9714-83cb17f089c9_200x200.png?1606298625886" width="50px"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,7 +36,7 @@
                     <a class="nav-link" href="tentang">Tentang Kami <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="kontak">Kontak</a>
+                    <a class="nav-link" href="akun">Akun</a>
                 </li>
                 </ul>
             </div>
@@ -90,19 +86,19 @@
     </tr>
     <tr>
       <td><img src="https://i.pinimg.com/originals/a2/5f/4f/a25f4f58938bbe61357ebca42d23866f.png" width="50" height="50"></td>
-      <td><a href="https://www.instagram.com/mar_mar_wijaya/">mar_mar_wijaya</a></td>
+      <td><a href="https://www.instagram.com/yohan_banjar/">yohan_banjar</a></td>
     </tr>
     <tr>
       <td><img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c543.png" width="50" height="50"></td>
-      <td>085315823366</td>
+      <td>085234140258</td>
     </tr>
     <tr>
       <td><img src="https://images.vexels.com/media/users/3/157423/isolated/preview/ce85e9ec0fcc780a0c269360ccfc685d-landline-telephone-icon-by-vexels.png" width="50" height="50"></td>
       <td>(024)3564567</td>
     </tr>
 </table> 
-<br></br>
-  <h1>Lokasi Kantor Kami</h1>
+<br><hr class="my-4"></br>
+  <h1>Lokasi Kantor Kami</h1><br>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1176.5217768339446!2d110.48649349143953!3d-7.316576792770736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a786876b54235%3A0x611e35baf270d066!2sJl.%20Rejosari%20II%2C%20Pulutan%2C%20Kec.%20Sidorejo%2C%20Kota%20Salatiga%2C%20Jawa%20Tengah%2050716!5e0!3m2!1sen!2sid!4v1607318117551!5m2!1sen!2sid" width="100%" height="70%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 <br></br>
 </center>
