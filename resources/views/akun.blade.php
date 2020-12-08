@@ -39,7 +39,7 @@
     <div class="container">
     <?php
         echo "<h1 align='center'>AKUN</h1>";
-        echo "<p>Anda login sebagai: ".$_SESSION['user']."<br><a class='btn btn-danger' href='logout'> Logout</a>"."</p>";
+        echo "<p>Anda login sebagai: ".$_SESSION['user']."<br><a class='btn btn-danger' href='/logoutUser'> Logout</a>"."</p>";
         echo "<center><h3>Informasi Akun</h3></center>";
 
         if(isset($err)){

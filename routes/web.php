@@ -37,7 +37,7 @@ Route::post('/loginUser', 'LoginController@cek');
 Route::get('/daftar', 'LoginController@daftar');
 Route::post('/daftar', 'LoginController@daftarGo');
 Route::get('/akun', 'LoginController@akun');
-Route::get('/logout', 'LoginController@logout');
+Route::get('/logoutUser', 'LoginController@logout');
 Route::get('/editAkun/{email}', 'LoginController@editAkun');
 Route::post('/editAkun', 'LoginController@editAkunGo');
 

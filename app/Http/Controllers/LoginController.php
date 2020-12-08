@@ -81,7 +81,7 @@ class LoginController extends Controller
     
     public function logout(){
         session_destroy();
-        return view('/');
+        return redirect('/');
     }
 
     public function daftarGo(Request $req){
