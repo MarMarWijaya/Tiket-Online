@@ -34,19 +34,18 @@
     </nav>
 
     <div class="container">
-<?php
-    
-?>
-
-
-
 <form method="post" action="/pembayaran">
 {{ csrf_field() }}
-  <?php
 
+  <?php
+foreach ($kelas as $key) {
+  $namaKelas = $key->Kelas;
+}
   echo "<input type='hidden' name='jml' value='".$_SESSION['jml']."'>";
   echo "<input type='hidden' name='idStok' value='".$idStok."'>";
+  echo "<input type='hidden' name='kelas' value='".$namaKelas."'>";
   echo "<input type='hidden' name='idKereta' value='".$idKereta."'>";
+  echo "<input type='hidden' name='idKelas' value='".$idKelas."'>";
   echo "<input type='hidden' name='berangkat' value='".$berangkat."'>";
   echo "<input type='hidden' name='tiba' value='".$tiba."'>";
   echo "<input type='hidden' name='namaPemesan' value='".$namaPemesan."'>";
@@ -58,77 +57,99 @@
   echo "<input type='hidden' name='hpPenumpang' value='".$hpPenumpang."'>";
   echo "<input type='hidden' name='nikPenumpang' value='".$nikPenumpang."'>";
   echo "<input type='hidden' name='harga' value='".$harga."'>";
-  $index = 0;
-  $no = [];
+  
 
 
+$index = 0;
+$no = [];
 echo "<center>";
+
+foreach ($kelas as $key) {
+  $tipeKelas = $key->Kelas;
+}
     foreach ($kursi as $k) {
       $noG[$index] = $k->gerbong;
       $no[$index] = $k->nomorKursi;
+      $arr[$index] = $k->idKelas;
       $index++;
     }
+
+    if(isset($arr)){
     $per = 0;
     $ind = 0;
     while($per < $_SESSION['jml']){
       $gerb = 1;
+      
       echo "<h1>Penumpang ke-".($per+1)."</h1>";
+      $gerbong = 1;
+      $ind2 = 0;
       
     for ($i=1; $i < 6; $i++) { 
+      echo "<table cellpadding='5%'>";
+      echo "<tr><td colspan='5' style='text-align: center'>Gerbong ".$tipeKelas." ke-".$i."</td></tr>";
+      $jml = count($noG);
       
       $kursi = 1;
-      if(in_array($i, $noG)){
-        echo "<table  cellpadding='15%'>";
-        echo "<tr><td colspan='4' style='text-align: center'><h4>Gerbong ke-".$i."</h4></td><tr>";
-        
-        $indexGerbongFix = array_search($i, $noG);
-        $gerbongFix = $i;
-        for ($j=0; $j < 5; $j++) { 
-          echo "<tr>";
-          for ($k=0; $k < 4; $k++) { 
-           if(in_array($kursi, $no)){
-            $indexKursiFix = array_search($kursi, $no); 
-             if($indexGerbongFix == $indexKursiFix){
-              
-              echo "<td><input type='radio' disabled>";
-             
-            }else{
-              echo "<td><input type='radio' name='kursiPilihan[".$ind."]' value='".$i.$kursi."'>";
-              
-            }
-           }else{
-            echo "<td><input type='radio' name='kursiPilihan[".$ind."]' value='".$i.$kursi."'>&nbsp";
-            
-           }
-           echo $kursi; $kursi++; 
-          } echo "<br>";echo "</td><tr>";
-        }echo "</table>";
-      }else{
-        echo "<table cellpadding='15%'>";
-        echo "<tr><td colspan='4' style='text-align: center'><h4>Gerbong ke-".$i."</h4></td></tr>";
-        
-        for ($j=0; $j < 5; $j++) { 
-          echo "<tr>";
-          for ($k=0; $k < 4; $k++) {
-            echo "<td><input type='radio' name='kursiPilihan[".$ind."]' value='".$i.$kursi."'>&nbsp";
-            
-            echo $kursi; $kursi++;
-            echo "</td>";
+      echo "<tr>";
+      for ($j=1; $j <= 20; $j++) { 
+        if($noG[$ind2] == $i && $no[$ind2] == $j){
+          echo "<td><input type='radio' disabled>".$j."</td>";
+          $ind2++;
+          if($ind2 == $jml){
+            $ind2 = 0;
           }
+        }else{
+          echo "<td><input type='radio' name='kursiPilihan[".$ind."]' value='".$i.$j."'>".$j."</td>";
+        }
+        if($j % 5 == 0){
           echo "</tr>";
         }
-        echo "</table>";
+        
       }
-      echo "<input type='hidden' name='test[".$ind."]' value='".$gerb."'>&nbsp";
-      $gerb++;
-   
     }
+    echo "</table>";
     $per++;
     $ind++;
   }
+}else{
+
+    $index = 0;
+    $no = [];
+    echo "<center>";
+        
+    foreach ($kelas as $key) {
+      $tipeKelas = $key->Kelas;
+    }
+    
+        $per = 0;
+        $ind = 0;
+        while($per < $_SESSION['jml']){
+          $gerb = 1;
+          echo "<h1>Penumpang ke-".($per+1)."</h1>";
+          $gerbong = 1;
+          $ind2 = 0;
+        for ($i=1; $i < 6; $i++) { 
+          echo "<table cellpadding='5%'>";
+          echo "<tr><td colspan='5' style='text-align: center'>Gerbong ".$tipeKelas." ke-".$i."</td></tr>";     
+          
+          echo "<tr>";
+          for ($j=1; $j <= 20; $j++) {         
+              echo "<td><input type='radio' name='kursiPilihan[".$ind."]' value='".$i.$j."'>".$j."</td>";
+              if($j % 5 == 0){
+                echo "</tr>";
+              }
+          }
+        }
+        echo "</table>";
+        $per++;
+        $ind++;
+      }
+}
   ?>
  <br>
 <input class="btn btn-warning" type='submit' value="Pilih">
+
+
 </form>
 </center>
 </div>

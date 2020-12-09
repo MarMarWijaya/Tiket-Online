@@ -20,9 +20,9 @@ class KonfirmasiController extends Controller
         ->select('nama_kereta', 'awal', 'kereta.idKereta', 'stok.idStok', 'tujuan', 'jam_berangkat', 'jam_sampai', 'stok.tgl', 'stok.tgl_tujuan', 'gerbong.Kelas', 'sisa', 'gerbong.Harga')
         ->where('kereta.idKereta', $req->id_kereta)
         ->where('gerbong.idKelas', $req->id_kelas)
-        ->where('stok.idStok', $req->id_stok)
+        ->where('stok.tgl', $req->tgl)
         ->get();
-        return view('konfirmasi', ['pilihan' => $pilihan], ['dewasa' => $req->dewasa, 'anak' => $req->anak, 'tiba' => $tiba, 'tujuan' => $tujuan]);
+        return view('konfirmasi', ['pilihan' => $pilihan], ['dewasa' => $req->dewasa, 'anak' => $req->anak, 'tiba' => $tiba, 'tujuan' => $tujuan, 'idKelas' => $req->id_kelas]);
     }
     public function tampilkanPilihanWithLogin(Request $req){
         //koding get ifo user
@@ -38,15 +38,16 @@ class KonfirmasiController extends Controller
         ->select('nama_kereta', 'awal', 'kereta.idKereta', 'stok.idStok', 'tujuan', 'jam_berangkat', 'jam_sampai', 'stok.tgl', 'stok.tgl_tujuan', 'gerbong.Kelas', 'sisa', 'gerbong.Harga')
         ->where('kereta.idKereta', $req->id_kereta)
         ->where('gerbong.idKelas', $req->id_kelas)
-        ->where('stok.idStok', $req->id_stok)
+        ->where('stok.tgl', $req->tgl)
         ->get();
-        return view('konfirmasi', ['pilihan'=>$pilihan, 'akun' =>$user, 'dewasa' => $req->dewasa, 'anak' => $req->anak, 'tiba' => $tiba, 'tujuan' => $tujuan]);
+        return view('konfirmasi', ['pilihan'=>$pilihan, 'akun' =>$user, 'dewasa' => $req->dewasa, 'anak' => $req->anak, 'tiba' => $tiba, 'tujuan' => $tujuan, 'idKelas' => $req->id_kelas]);
     }
     public $data_sementara;
     public function checkout(Request $req){
         
         $idStok = $req->idStok;
         $idKereta = $req->idKereta;
+        $idKelas = $req->idKelas;
         $namaPenumpang = implode("; ", $req->namaPenumpang);
         $emailPenumpang = implode("; ", $req->emailPenumpang);
         $hpPenumpang = implode("; ", $req->hpPenumpang);
@@ -58,21 +59,26 @@ class KonfirmasiController extends Controller
             ->where('kereta.idKereta', $idKereta)
             ->get();
 
-        
-
         $noKursi = DB::table('pemesanan')
-            ->select('gerbong', 'nomorKursi')
-            ->join('kereta', 'kereta.idKereta', '=', 'pemesanan.idKereta')
-            ->join('stok', 'stok.idKereta', '=', 'kereta.idKereta')
-            ->where('kereta.idKereta', $idKereta)
-            ->where('stok.idStok', $idStok)
+            ->select('gerbong', 'nomorKursi', 'idKelas')
+            ->where('idKereta', $idKereta)
+            ->where('idStok', $idStok)
+            ->where('idKelas', $idKelas)
+            ->orderBy('gerbong', 'asc')
+            ->orderBy('nomorKursi', 'asc')
             ->get();
         
+        $kelas = DB::table('gerbong')
+        ->select('Kelas')
+        ->where('idKelas', $idKelas)
+        ->get();
+
 
 
         $jml = count($req->namaPenumpang);
         $_SESSION['jml'] = $jml;
-        return view("pilihKursi", ['kursi' => $noKursi], [
+        return view("pilihKursi", ['kursi' => $noKursi],[ 'kelas' => $kelas,
+        'idKelas' => $idKelas,
         'jml' => $jml, 
         'idStok' => $idStok, 
         'idKereta' => $idKereta,
@@ -104,10 +110,12 @@ class KonfirmasiController extends Controller
             //ada isi yang sama
             return view("pembayaran", ['pesan' => 'Kursi tidak boleh sama']);
         }else{
-            return view("pembayaran", ['pesan' => 'Simpan ke DB', 
+            return view("pembayaran", [ 
                 'jml' => $req->jml, 
                 'idStok' => $req->idStok, 
                 'idKereta' => $req->idKereta,
+                'idKelas' => $req->idKelas,
+                'kelas' => $req->kelas,
                 "berangkat" => $req->berangkat,
                 "tiba" => $req->tiba, 
                 "namaPemesan" => $req->namaPemesan,
@@ -153,6 +161,8 @@ class KonfirmasiController extends Controller
             'emailPenumpang' => $req->emailPenumpang,
             'idKereta' => $req->idKereta,
             'idStok' => $req->idStok,
+            'idKelas' => $req->idKelas,
+            'kelas' => $req->kelas,
             'berangkat' => $req->berangkat,
             'tiba' => $req->tiba,
             'gerbong' => $req->gerbong,

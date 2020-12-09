@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        ///$this->middleware('auth');
     }
 
     /**
@@ -42,6 +42,7 @@ class HomeController extends Controller
             'emailPenumpang' => $request->emailPenumpang,
             'idKereta' => $request->idKereta,
             'idStok' => $request->idStok,
+            'idKelas' => $request->idKelas,
             'berangkat' => $request->berangkat,
             'tiba' => $request->tiba,
             'gerbong' => $request->gerbong,
@@ -67,6 +68,7 @@ class HomeController extends Controller
                 'namaKereta' => $nama,
                 'berangkat' => $request->berangkat,
                 'tiba' => $request->tiba,
+                'kelas' => $request->kelas,
                 'gerbong' => $request->gerbong,
                 'nomorKursi' => $request->kursi,
                 'harga' => $request->harga
@@ -83,6 +85,6 @@ class HomeController extends Controller
         if (Mail::failures()) {
             return "Gagal mengirim Email";
         }
-        return view('home');
+        return redirect('/')->with(['msg' => "Terimakasih sudah menggunakan layanan kami, cek email Anda untuk melihat tiket Anda"]);
     }
 }

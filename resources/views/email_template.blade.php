@@ -11,6 +11,7 @@
 <p>Kereta : {{ $namaKereta }}</p>
 <p>Keberangkatan : {{ $berangkat }}</p>
 <p>Tiba : {{ $tiba }}</p>
+<p>Kelas : {{ $kelas }}</p>
 <p>Nomor Gerbong : {{ $gerbong }}</p>
 <p>Nomor Kursi : {{ $nomorKursi }}</p>
 <p>Harga : Rp.{{ $harga }}</p>

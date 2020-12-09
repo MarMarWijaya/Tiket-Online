@@ -116,6 +116,7 @@
                     </div>
                     <input type='hidden' name='idKereta' value='{{ $p->idKereta }}'>
                     <input type='hidden' name='idStok' value='{{ $p->idStok }}'>
+                    <input type='hidden' name='idKelas' value='{{ $idKelas }}'>
                     <?php
                         echo "<input type='hidden' name='tiba' value='".$p->awal.", ".$p->tgl.", ".$p->jam_berangkat."'>
                         <input type='hidden' name='tujuan' value='".$p->tujuan.", ".$p->tgl_tujuan.", ".$p->jam_sampai."'>";
