@@ -40,6 +40,8 @@ Route::get('/akun', 'LoginController@akun');
 Route::get('/logoutUser', 'LoginController@logout');
 Route::get('/editAkun/{email}', 'LoginController@editAkun');
 Route::post('/editAkun', 'LoginController@editAkunGo');
+Route::get('/editAkunPassword/{email}', 'LoginController@editAkunPassword');
+Route::post('/editAkunPassword', 'LoginController@editAkunPasswordGo');
 
 Route::post('/send-email', 'HomeController@sendEmail')->name('send.email');
 Auth::routes();

@@ -20,9 +20,9 @@ class LoginController extends Controller
     }
 
     public function editAkun($email){
-        $err = "mantab"; 
+        $operasi = "mantab"; 
         $user = DB::table('user')->where('email', $email)->get();
-        return view('akun', ['akun'=>$user], ['err'=>$err]);
+        return view('akun', ['akun'=>$user], ['operasi'=>$operasi]);
     }
     public function editAkunGo(Request $req){
         //password
@@ -33,7 +33,8 @@ class LoginController extends Controller
             $cekEmail = DB::table('user')->where('email', $req->email)->first();
             if(isset($cekEmail)){
                 $err = "<h4 style='color:red'>Email Sudah digunakan, silahkan gunakan email lain!</h4>";
-                return view('akun', ['err'=> $err], ['akun'=>$user]);
+                $operasi = "mantab";
+                return view('akun', ['err'=> $err, 'akun'=>$user, 'operasi'=>$operasi]);
             }
         }
         //cek password
@@ -48,13 +49,40 @@ class LoginController extends Controller
             return redirect('/akun');
         }else{
             $err = "<h4 style='color:red'>Password Salah!</h4>";
-            return view('akun', ['err'=> $err], ['akun'=>$user]);
+            $operasi = "mantab";
+            return view('akun', ['err'=> $err, 'akun'=>$user, 'operasi'=>$operasi]);
         }
-
-
-        
     }
 
+    public function editAkunPassword($email){
+        $operasi = "mantabKali"; 
+        $user = DB::table('user')->where('email', $email)->get();
+        return view('akun', ['akun'=>$user], ['operasi'=>$operasi]);
+    }
+    public function editAkunPasswordGo(Request $req){
+        //ambil data base asli
+        $user = DB::table('user')->where('email', $req->emailAsli)->get();
+
+        //cek ualngi password
+        if($req->passwordBaru1 != $req->passwordBaru2){
+            $err = "<h4 style='color:red'>Password Baru Tidak Sama!</h4>";
+            $operasi = "mantabKali";
+            return view('akun', ['err'=> $err, 'akun'=>$user, 'operasi'=>$operasi]);
+        }
+        //cek password
+        if($req->passwordLama == $user[0]->password){
+            //update data infromasi user
+            DB::table('user')->where('email', $req->emailAsli)->update([
+                'password' => $req->passwordBaru1
+            ]);
+            return redirect('/akun');
+        }else{
+            $err = "<h4 style='color:red'>Password Lama Salah!</h4>";
+            $operasi = "mantabKali";
+            return view('akun', ['err'=> $err, 'akun'=>$user, 'operasi'=>$operasi]);
+        }
+    }
+    
 
     public function cek(Request $req){
         $email = $req->email;

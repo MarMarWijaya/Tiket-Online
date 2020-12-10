@@ -39,7 +39,7 @@
         echo "<p>Anda login sebagai: ".$_SESSION['user']."<br><a class='btn btn-danger' href='/logoutUser'> Logout</a>"."</p>";
         echo "<center><h3>Informasi Akun</h3></center>";
 
-        if(isset($err)){
+        if(isset($operasi) && $operasi == "mantab"){
     ?>
     <center>
     <form method='POST' action='{{url('/editAkun')}}'>
@@ -47,7 +47,7 @@
     {{ csrf_field() }}
         <tr>
             <td> <label for='nama'>Nama</label>
-            <td> <input class="form-control ml-30" name='nama' id='nama' placeholder='Nama lengkap sesuai KTP' value='<?= $akun[0]->nama ?>' required>
+            <td> <input class="form-control ml-30" name='nama' id='nama' placeholder='Nama lengkap sesuai KTP' value="<?= $akun[0]->nama ?>" required>
         </tr>
 
         <tr>
@@ -76,7 +76,7 @@
             <td align='right'> <input type='submit' class="btn btn-success" value='Simpan Perubahan'> </td>
         </tr>            
 
-        <?php if($err != "mantab"){ ?>
+        <?php if(isset($err)){ ?>
         <tr>
             <td colspan='2' align='right'><?= $err ?></td>
         </tr>
@@ -84,6 +84,42 @@
     </form>
     </center>
     </table>
+    <?php
+        }else if(isset($operasi) && $operasi == "mantabKali"){
+    ?>
+    <center>
+    <form method='POST' action='{{url('/editAkunPassword')}}'>
+    <table cellpadding='5%'>
+    {{ csrf_field() }}
+        <tr>
+            <td> <label for='pass1'>Password Baru</label>
+            <td> <input class="form-control ml-30" type='password' name='passwordBaru1' id='pass1' placeholder='Password Baru' required> </td>
+        </tr>
+
+        <tr>
+            <td> <label for='pass2'>Ulangi Password Baru</label>
+            <td> <input class="form-control ml-30" type='password' name='passwordBaru2' id='pass2' placeholder='Ulangi Password Baru' required> </td>
+        </tr>
+
+        <tr>
+            <td> <label for='pass'>Pasword Lama</label>
+            <td> <input class="form-control ml-30" type='password' name='passwordLama' id='pass' placeholder='Password Lama' required> </td>
+            
+            <input type='hidden' name='emailAsli' value='<?= $akun[0]->email ?>'>
+        </tr>
+
+        <tr>
+            <td align='right'> <a class="btn btn-danger" href='/akun'>Batal</a> </td>
+            <td align='right'> <input type='submit' class="btn btn-success" value='Simpan Perubahan'> </td>
+        </tr>            
+
+        <?php if(isset($err)){ ?>
+        <tr>
+            <td colspan='2' align='right'><?= $err ?></td>
+        </tr>
+        <?php } ?>
+    </form>
+    </center>
     <?php
         }else{
     ?>
@@ -113,6 +149,7 @@
     </table>
     <br>
     <a class="btn btn-warning" href='/editAkun/{{ $akun[0]->email }}'>Edit Informasi Akun</a><br><br>
+    <a class="btn btn-warning" href='/editAkunPassword/{{ $akun[0]->email }}'>Ubah Password</a><br><br>
     <!--<a class="btn btn-secondary" href='editAkun/{{ $akun[0]->email }}'>Ubah Password</a>-->
     </center>
     <?php } ?>
