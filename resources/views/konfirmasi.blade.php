@@ -28,7 +28,7 @@
                     <a class="nav-link" href="tentang">Tentang Kami</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#kontak">Kontak</a>
+                    <a class="nav-link" href="akun">Akun</a>
                 </li>
                 </ul>
             </div>
@@ -108,9 +108,9 @@
                             </table>
                             <table border='0' width='97%' style="margin-top: 5%; margin-left:3%">
                                 <tr>
-                                    <td><h6><b>{{ $p->awal }}</b> <br> {{ $p->jam_berangkat }} <br> {{ $p->tgl }}</h6><br></td>
-                                    <td style="color:red"><h5><b>></b></h5><br></td>
-                                    <td><h6><b>&nbsp;&nbsp;&nbsp;&nbsp;{{ $p->tujuan }}</b> <br> &nbsp;&nbsp;&nbsp;&nbsp;{{ $p->jam_sampai }} <br> &nbsp;&nbsp;&nbsp;&nbsp;{{ $p->tgl_tujuan }}</h6><br></td>
+                                    <td style="text-align:center"><h6><b>{{ $p->awal }}</b> <br> {{ $p->jam_berangkat }} <br> {{ $p->tgl }}</h6><br></td>
+                                    <td style="color:red; text-align:center"><h5><b>></b></h5><br></td>
+                                    <td style="text-align:center"><h6><b>{{ $p->tujuan }}</b> <br> &nbsp;&nbsp;&nbsp;&nbsp;{{ $p->jam_sampai }} <br> &nbsp;&nbsp;&nbsp;&nbsp;{{ $p->tgl_tujuan }}</h6><br></td>
                                 </tr>
                             </table>
                     </div>

@@ -19,17 +19,20 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="">Beranda <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li>
                     <a class="nav-link" href="/home">Stasiun</a>
                 </li>
-                <li class="nav-item">
+                <li>
                     <a class="nav-link" href="/stok">Stok</a>
                 </li>
-                <li class="nav-item">
+                <li>
                     <a class="nav-link" href="/gerbong">Gerbong</a>
                 </li>
                 <li>
                     <a class="nav-link" href="/kereta">Kereta</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="/pemesanan">Pemesanan</a>
                 </li>
                 </ul>
                 &ensp;<a href="{{ url('/logout')}}" style="color:white; background-color:red; border-radius:10px"><b>&ensp;LOGOUT&ensp;</b></a>

@@ -13,13 +13,13 @@
                 </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li>
                     <a class="nav-link" href="/homeAdmin">Beranda <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li>
                     <a class="nav-link" href="/home">Stasiun</a>
                 </li>
-                <li class="nav-item">
+                <li>
                     <a class="nav-link" href="/stok">Stok</a>
                 </li>
                 <li class="nav-item active">
@@ -27,6 +27,9 @@
                 </li>
                 <li>
                     <a class="nav-link" href="/kereta">Kereta</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="/pemesanan">Pemesanan</a>
                 </li>
                 </ul>
                 &ensp;<a href="{{ url('/logout')}}" style="color:white; background-color:red; border-radius:10px"><b>&ensp;LOGOUT&ensp;</b></a>
@@ -54,7 +57,7 @@
                     <input style="border: none; font-size:20; color:white; background-color: transparent;" class="form-control" type="text" readonly name='idKereta' value='{{ $idKeretaEdit }}'>
                 </div>
                 <div class="form-group">
-                <input style="margin-left:0.5%; margin-top: 2%; width: 99%; height: 6%; font-size: 22; background-color: #ffbb33; border: 0" type='submit' value='Update' class="btn btn-warning" >
+                <input style="margin-left:0.5%; margin-top: 2%; width: 99%; height: 6%; font-size: 22; background-color: #ffbb33; border: 0" type='submit' value='Update' class="btn btn-warning">
                 </div><br style="margin-top:-2%">
             @endforeach
         </form>

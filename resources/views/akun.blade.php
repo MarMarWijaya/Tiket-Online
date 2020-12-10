@@ -113,7 +113,7 @@
     </table>
     <br>
     <a class="btn btn-warning" href='/editAkun/{{ $akun[0]->email }}'>Edit Informasi Akun</a><br><br>
-    <a class="btn btn-secondary" href='editAkun/{{ $akun[0]->email }}'>Ubah Password</a>
+    <!--<a class="btn btn-secondary" href='editAkun/{{ $akun[0]->email }}'>Ubah Password</a>-->
     </center>
     <?php } ?>
 

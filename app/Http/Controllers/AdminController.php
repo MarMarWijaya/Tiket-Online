@@ -208,4 +208,17 @@ class AdminController extends Controller
         );
         return redirect('/kereta'); 
     }
+    //Pemesanan
+    public function pemesanan(){
+        $pemesanan = DB::table('pemesanan')->get();
+        return view('tampilPemesanan',['pemesanan'=>$pemesanan]);
+    }
+    public function detailPemesanan(Request $req){
+        $hasil = DB::table('pemesanan')->where('idPemesanan',$req->idPemesanan)->get();
+
+        return view('detailPemesanan',['hasil'=>$hasil]);
+    }
+    public function fixPemesanan(Request $req){
+        return redirect('/pemesanan'); 
+    }
 }

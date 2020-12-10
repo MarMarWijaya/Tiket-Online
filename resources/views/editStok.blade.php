@@ -13,20 +13,23 @@
                 </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li>
                     <a class="nav-link" href="/homeAdmin">Beranda <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li>
                     <a class="nav-link" href="/home">Stasiun</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="/stok">Stok</a>
                 </li>
-                <li class="nav-item">
+                <li>
                     <a class="nav-link" href="/gerbong">Gerbong</a>
                 </li>
                 <li>
                     <a class="nav-link" href="/kereta">Kereta</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="/pemesanan">Pemesanan</a>
                 </li>
                 </ul>
                 &ensp;<a href="{{ url('/logout')}}" style="color:white; background-color:red; border-radius:10px"><b>&ensp;LOGOUT&ensp;</b></a>
