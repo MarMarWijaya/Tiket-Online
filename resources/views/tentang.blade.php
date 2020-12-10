@@ -50,17 +50,17 @@
   </ol>
   <div class="carousel-inner" >
     <div class="carousel-item active">
-      <img src="https://wallpapercave.com/wp/wp1905627.jpg"  class="d-block w-100" alt="...">
+      <img src="img/wallpaper1.png"  class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <h3>Tentang Kami</h3>
+        <p>Kepo tentang kami? Yuk cekidot</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="https://i.pinimg.com/originals/18/82/6b/18826b1eef9c7a13dac74848d7c0b99a.jpg" class="d-block w-100" alt="...">
+      <img src="img/wallpaper2.png" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h3>Tentang Kami</h3>
+        <p>Kenalan dengan kami yuk</p>
       </div>
     </div>
   </div>
