@@ -46,7 +46,7 @@
                         <!-- halaman konfrimasi jika user sudah login -->
                         <?php if(isset($_SESSION['user'])): ?>
                             <table border='0' width="97%">
-                                <tr style="color: #0b56a7"> <td><h6><b>Nama Pemesan</b> <br style="margin-bottom: 1%"> <input type="text" name='namaPemesan' class="form-control" id="exampleInputPassword1" placeholder="Nama sesuai KTP/SIM/Paspor" value='<?= $akun->nama  ?>' required></h6></td>
+                                <tr style="color: #0b56a7"> <td><h6><b>Nama Pemesan</b> <br style="margin-bottom: 1%"> <input type="text" name='namaPemesan' class="form-control" id="exampleInputPassword1" placeholder="Nama sesuai KTP/SIM/Paspor" value="<?= $akun->nama  ?>" required></h6></td>
                                 </tr>
                                 <tr style="color: #0b56a7">
                                     <td><h6 style="margin-top:2%"><b>Email</b> <br style="margin-bottom: 1%"> <input type="text" name='emailPemesan' class="form-control" id="exampleInputPassword1" placeholder="Contoh@gmail.com" value='<?= $akun->email ?>' required></h6></td>
