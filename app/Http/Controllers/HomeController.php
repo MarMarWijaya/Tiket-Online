@@ -85,6 +85,6 @@ class HomeController extends Controller
         if (Mail::failures()) {
             return "Gagal mengirim Email";
         }
-        return redirect('/')->with(['msg' => "Terimakasih sudah menggunakan layanan kami, cek email Anda untuk melihat tiket Anda"]);
+        return view('home', ['msg' => "Terimakasih sudah menggunakan layanan kami, cek email Anda untuk melihat tiket Anda"]);
     }
 }

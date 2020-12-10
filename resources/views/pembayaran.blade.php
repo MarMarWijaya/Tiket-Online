@@ -62,7 +62,7 @@
   </tr>
 </table>
 
-<form method="post" action="/validasi">
+<form method="post" action="/">
 {{ csrf_field() }}
 <?php
   echo "<input type='hidden' name='jml' value='".$jml."'>";

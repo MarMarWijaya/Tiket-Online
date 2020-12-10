@@ -28,7 +28,7 @@ Route::post('/checkout', 'KonfirmasiController@checkout');
 Route::get('/checkout', 'KonfirmasiController@checkout');
 Route::post('/pembayaran', 'KonfirmasiController@validasiKursi');
 Route::post('/validasi', 'KonfirmasiController@validasiAkhir');
-Route::post('/validasi', 'HomeController@sendEmail');
+Route::post('/', 'HomeController@sendEmail');
 // Route::get('/kursi', 'KonfirmasiController@checkout');
 Route::get('/coba', 'ListKeretaController@cobak');
 Route::get('/tentang', 'LainController@tentang');

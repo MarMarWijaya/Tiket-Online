@@ -45,6 +45,13 @@
             <a class="btn btn-primary btn-lg font-weight-bold" href="/pesan" role="button">PESAN SEKARANG</a>
         </div>
     </div>
+    
+    @if(isset($msg))
+        
+        <script>
+            alert("Terimakasih sudah menggunakan layanan kami, cek email Anda untuk melihat tiket Anda");
+        </script>
+    @endif
 
     <?php
     if(isset($msg)) echo $msg;
